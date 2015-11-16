@@ -18,12 +18,20 @@ class Position
   end
 
   def move_y(by)
+    @y = @y + by
   end
 
   def move_x(by)
+    @x = @x + by
   end
 
-  def change_orientation(orientation_movement)
+  def turn_to(orientation)
+
+    unless VALID_ORIENTATIONS.include?(orientation.upcase)
+      raise ArgumentError.new('Invalid Orientation')
+    end
+
+    @orientation = orientation.upcase
   end
 
 end
